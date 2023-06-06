@@ -21,11 +21,11 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
     private String[][] doctor_details1 =
             {
-                    {"Doctor Name : Mahbubur Rahman", "Apollo Hospital, Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500", "19:00 - 22:00" },
-                    {"Doctor Name : Tavvir Ahmed", "BRB Hospital, Dhaka", "Exp : 4yrs.", "Mobile No : 01700000000", "500", "19:00 - 22:00" },
-                    {"Doctor Name : Susmita Parvin", "MAG Usmani Medical College, Sylhet", "Exp : 10yrs.", "Mobile No : 01800000000", "900", "19:00 - 22:00" },
-                    {"Doctor Name : Rezaul Karim", "Tangail Medical College Tangail", "Exp : 8yrs.", "Mobile No : 01300000000", "600" , "19:00 - 22:00"},
-                    {"Doctor Name : Jesmin Akter", "Al-Rafi Hospital, Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" , "19:00 - 22:00"}
+                    {"Doctor Name : Mahbubur Rahman", "Apollo Hospital, Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500", "19:00 - 22:00", "MBBS (DMC), FACC (USA)" },
+                    {"Doctor Name : Tavvir Ahmed", "BRB Hospital, Dhaka", "Exp : 4yrs.", "Mobile No : 01700000000", "500", "19:00 - 22:00", "MBBS (DU), FCPS (CHILD)"  },
+                    {"Doctor Name : Susmita Parvin", "MAG Usmani Medical College, Sylhet", "Exp : 10yrs.", "Mobile No : 01800000000", "900", "19:00 - 22:00" , "MBBS (MUMC), FCPS (CHILD)" },
+                    {"Doctor Name : Rezaul Karim", "Tangail Medical College Tangail", "Exp : 8yrs.", "Mobile No : 01300000000", "600" , "19:00 - 22:00", "MBBS (TMC), CCD (BIRDEM)" },
+                    {"Doctor Name : Jesmin Akter", "Al-Rafi Hospital, Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" , "19:00 - 22:00", "MBBS (DU), FCPS (OBGYN)" }
 
             };
 
@@ -123,13 +123,14 @@ public class DoctorDetailsActivity extends AppCompatActivity {
         item.put("line4", doctor_details[i][3]);
         item.put("line5", "Cons Fees:"+doctor_details[i][4]+"/-");
         item.put("line6", "Available Time: "+doctor_details[i][5]);
+        item.put("line7", "Designation: "+doctor_details[i][6]);
         list.add(item);
     }
 
     sa = new SimpleAdapter(this,list,
             R.layout.multi_lines,
-            new String[]{"line1","line2","line3","line4","line5", "line6"},
-            new int[]{R.id.line_a,R.id.line_b,R.id.line_c,R.id.line_d,R.id.line_e, R.id.line_n}
+            new String[]{"line1","line2","line3","line4","line5", "line6","line7"},
+            new int[]{R.id.line_a,R.id.line_b,R.id.line_c,R.id.line_d,R.id.line_e, R.id.line_n, R.id.line_m}
             );
 
         ListView lst = findViewById(R.id.listviewDD);

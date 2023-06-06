@@ -14,9 +14,19 @@
         android:text="TextVeiw"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="italic"
+        android:textStyle="italic|bold"
 
         />
+    <TextView
+        android:id="@+id/line_m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextVeiw"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+
+        />
+
 
     <TextView
         android:id="@+id/line_b"
@@ -25,8 +35,6 @@
         android:text="TextVeiw"
         android:textColor="#9C27B0"
         android:textSize="14sp"
-        android:textStyle="italic"
-
         />
     <TextView
         android:id="@+id/line_n"
