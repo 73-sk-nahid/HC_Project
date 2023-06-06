@@ -88,7 +88,7 @@ private String[] package_details =
             item.put("line3", packages[i][2]);
             item.put("line4", packages[i][3]);
             item.put("line5", "Total Cost"+packages[i][4]+"/-");
-            item.put("line6", packages[i][1]);
+            item.put("line6", "");
             list.add( item );
 
         }

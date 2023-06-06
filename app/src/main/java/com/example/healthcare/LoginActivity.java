@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 String password = edPassword.getText().toString();
                 Database db = new Database(getApplicationContext(), "healthcare", null, 1);
                 if (username.length()==0 || password.length()==0){
-                    //startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
                 }
                else {
