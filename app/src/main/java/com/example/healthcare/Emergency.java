@@ -19,10 +19,11 @@ public class Emergency extends AppCompatActivity {
     private String[][] health_details =
             {
                     {"National Emergency", "All over Bangladesh", "999", "", "Click to call","24/7"},
-                    {"National Emergency", "All over Bangladesh", "999", "", "Click to call","24/7"},
-                    {"National Emergency", "All over Bangladesh", "999", "", "Click to call","24/7"},
-                    {"National Emergency", "All over Bangladesh", "999", "", "Click to call","24/7"},
-                    {"National Emergency", "All over Bangladesh", "999", "", "Click to call","24/7"},
+                    {"DMCH", "Dhaka City", "999", "", "Click to call", "24/7"},
+                    {"Apollo Hospitals Dhaka", "Dhaka City", "10678", "", "Click to call", "24/7"},
+                    {"Square Hospitals Limited", "Dhaka City", "10616", "", "Click to call", "24/7"},
+                    {"United Hospital", "Dhaka City", "10666", "", "Click to call", "24/7"},
+                    {"Labaid Specialized Hospital", "Dhaka City", "10606", "", "Click to call", "24/7"}
             };
     HashMap<String,String> item;
     ArrayList list;

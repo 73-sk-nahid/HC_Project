@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,8 +48,11 @@ public class LabTestActivity extends AppCompatActivity {
                     "Lipid Profile"
 
     };
+
     HashMap<String,String> item;
     ArrayList list;
+
+
     SimpleAdapter sa;
     Button btnGoToCard, btnBack;
     ListView listView;
@@ -61,9 +65,13 @@ public class LabTestActivity extends AppCompatActivity {
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_lab_test);
 
+
+
         btnGoToCard = findViewById(R.id.buttonLTGoToCard);
         btnBack = findViewById(R.id.buttonLTBack);
         listView = findViewById(R.id.listviewLT);
+
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +92,8 @@ public class LabTestActivity extends AppCompatActivity {
             list.add( item );
 
         }
+
+
 
         sa = new SimpleAdapter(this, list,
                 R.layout.multi_lines,
