@@ -58,6 +58,7 @@ public class CartLabActivity extends AppCompatActivity {
         float totalAmount = 0;
         ArrayList dbData = db.getCartData(username,"lab");
         Toast.makeText(getApplicationContext(), ""+dbData, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Lab Test Cart Items", Toast.LENGTH_SHORT).show();
 
         packages = new String[dbData.size()][];
         for (int i=0;i<packages.length;i++){
@@ -65,7 +66,7 @@ public class CartLabActivity extends AppCompatActivity {
         }
 
         for (int i=0;i<dbData.size();i++){
-            String arrData = dbData.get(1).toString();
+            String arrData = dbData.get(i).toString();
             String[] strData = arrData.split(java.util.regex.Pattern.quote("$"));
             packages[i][0] = strData[0];
             packages[i][4] = "Cost: "+strData[1]+"/-";
@@ -137,6 +138,7 @@ public class CartLabActivity extends AppCompatActivity {
                 dateButton.setText(i2+"/"+i1+"/"+i);
             }
         };
+
         Calendar cal = Calendar.getInstance();
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);

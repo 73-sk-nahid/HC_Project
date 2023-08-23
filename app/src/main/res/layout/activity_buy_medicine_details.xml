@@ -43,6 +43,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:padding="5dp"
         android:text="Buy Medicine"
         android:textColor="@color/yellowlight"

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -20,13 +21,21 @@ public class LoginActivity extends AppCompatActivity {
     Button btn;
     TextView tv;
 
+    private boolean doubleBackToExitPressedOnce = false;
+    private static final int BACK_PRESS_DELAY = 2000; // Time in milliseconds
+    private boolean applyExitLogic = false;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
+
+        applyExitLogic = getIntent().getBooleanExtra("applyExitLogic", false);
 
         edUsername = findViewById(R.id.editTextLoginUsername);
         edPassword = findViewById(R.id.editTextLoginPassword);
@@ -39,22 +48,22 @@ public class LoginActivity extends AppCompatActivity {
                 String username = edUsername.getText().toString();
                 String password = edPassword.getText().toString();
                 Database db = new Database(getApplicationContext(), "healthcare", null, 1);
-                if (username.length()==0 || password.length()==0){
-                    startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                if (username.length() == 0 || password.length() == 0) {
+                    applyExitLogic = true;
+                    //startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                     Toast.makeText(getApplicationContext(), "Please fill all details", Toast.LENGTH_SHORT).show();
-                }
-               else {
-                   if (db.login(username,password)==1){
-                       Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
-                       SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
-                       SharedPreferences.Editor editor = sharedPreferences.edit();
-                       editor.putString("username", username);
-                       // to save our data with key and value.
-                       editor.apply();
-                       startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-                   }else {
-                       Toast.makeText(getApplicationContext(), "Invalid Username and Password", Toast.LENGTH_SHORT).show();
-                   }
+                } else {
+                    if (db.login(username, password) == 1) {
+                        Toast.makeText(getApplicationContext(), "Login Success", Toast.LENGTH_SHORT).show();
+                        SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                        editor.putString("username", username);
+                        // to save our data with key and value.
+                        editor.apply();
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Invalid Username and Password", Toast.LENGTH_SHORT).show();
+                    }
 
                 }
 
@@ -65,10 +74,31 @@ public class LoginActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
             }
         });
 
+    }
+    @Override
+    public void onBackPressed() {
+        //applyExitLogic = true;
+        if (applyExitLogic) {
+            if (doubleBackToExitPressedOnce) {
+                super.onBackPressed();
+                return;
+            }
 
+            this.doubleBackToExitPressedOnce = true;
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    doubleBackToExitPressedOnce = false;
+                }
+            }, BACK_PRESS_DELAY);
+        } else {
+            super.onBackPressed();
+        }
     }
 }
