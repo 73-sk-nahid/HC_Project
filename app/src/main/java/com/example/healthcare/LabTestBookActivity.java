@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Random;
+
 public class LabTestBookActivity extends AppCompatActivity {
 
     EditText edname, edaddress, edcontact, edpincode;
@@ -37,6 +39,8 @@ public class LabTestBookActivity extends AppCompatActivity {
         String date = intent.getStringExtra("date");
         String time = intent.getStringExtra("time");
 
+        String orderNumber = generateOrderNumber();
+
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,4 +64,10 @@ public class LabTestBookActivity extends AppCompatActivity {
             }
         });
     }
+    private String generateOrderNumber() {
+        Random random = new Random();
+        int orderNumber = random.nextInt(10000) + 9000; // Generate a random number between 10000 and 99999
+        return String.valueOf(orderNumber);
+    }
+
 }

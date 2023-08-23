@@ -137,7 +137,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     public int checkAppointmentExists(String username, String fullname, String address, String contact, String date, String time){
-       int result = 0;
+        int result = 0;
         String str[] = new String[6];
         str[0] = username;
         str[1] = fullname;

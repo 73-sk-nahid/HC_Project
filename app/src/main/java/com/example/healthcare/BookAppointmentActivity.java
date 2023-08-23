@@ -20,6 +20,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.Random;
 
 public class BookAppointmentActivity extends AppCompatActivity {
 
@@ -105,7 +106,7 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 if (db.checkAppointmentExists(username,title+" => "+fullname,address,contact,dateButton.getText().toString(),timeButton.getText().toString())==1){
                     Toast.makeText(getApplicationContext(), "Appointment already booked", Toast.LENGTH_LONG).show();
                 }else {
-                    db.addOrder(username,title+" => "+fullname,address,contact,0,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
+                    db.addOrder( username,title+" => "+fullname,address,contact,0,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
                     //Intent it = new Intent(BookAppointmentActivity.this, BuyMedicineBookActivity.class);
                     //startActivity(it);
                     Toast.makeText(getApplicationContext(), "Your appointment is done successfully", Toast.LENGTH_LONG).show();
@@ -150,4 +151,10 @@ public class BookAppointmentActivity extends AppCompatActivity {
         int style = AlertDialog.THEME_HOLO_DARK;
         timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,mins,true);
     }
+    private String generateOrderNumber() {
+        Random random = new Random();
+        int orderNumber = random.nextInt(9000) + 6000; // Generate a random number between 10000 and 99999
+        return String.valueOf(orderNumber);
+    }
+    String orderNumber = generateOrderNumber();
 }

@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Random;
+
 public class BuyMedicineBookActivity extends AppCompatActivity {
 
     EditText edname, edaddress, edcontact, edpincode;
@@ -37,6 +39,8 @@ public class BuyMedicineBookActivity extends AppCompatActivity {
         String date = intent.getStringExtra("date");
         //String time = intent.getStringExtra("time");
 
+
+        String orderNumber  = generateOrderNumber();
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,4 +63,10 @@ public class BuyMedicineBookActivity extends AppCompatActivity {
             }
         });
     }
+    private String generateOrderNumber() {
+        Random random = new Random();
+        int orderNumber = random.nextInt(5000) + 1000; // Generate a random number between 10000 and 99999
+        return String.valueOf(orderNumber);
+    }
+
 }
