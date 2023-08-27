@@ -37,9 +37,9 @@ public class LabTestBookActivity extends AppCompatActivity {
         Intent intent=getIntent();
         String[] price = intent.getStringExtra("price").toString().split(java.util.regex.Pattern.quote(":"));
         String date = intent.getStringExtra("date");
-        String time = intent.getStringExtra("time");
+        //String time = intent.getStringExtra("time");
 
-        String orderNumber = generateOrderNumber();
+        String odnum = generateOrderNumber();
 
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +48,8 @@ public class LabTestBookActivity extends AppCompatActivity {
                 String username = sharedPreferences.getString("username","").toString();
 
                 Database db = new Database(getApplicationContext(),"healthcare",null,1);
+                db.insertOrderDetails(odnum, "Unpaid"); // Insert a paid order
+
 
                 db.addOrder(username,
                         edname.getText().toString(),
@@ -55,7 +57,7 @@ public class LabTestBookActivity extends AppCompatActivity {
                         edcontact.getText().toString(),
                         Integer.parseInt(edpincode.getText().toString()),
                         date.toString(),
-                        time.toString(),
+                        odnum.toString(),
                         Float.parseFloat(price[1].toString()),"lab");
                 db.removeCart(username,"lab");
                 Toast.makeText(getApplicationContext(), "Your booking is done successfully", Toast.LENGTH_LONG).show();

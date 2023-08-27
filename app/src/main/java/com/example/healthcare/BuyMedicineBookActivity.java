@@ -40,7 +40,7 @@ public class BuyMedicineBookActivity extends AppCompatActivity {
         //String time = intent.getStringExtra("time");
 
 
-        String orderNumber  = generateOrderNumber();
+        String odnum  = generateOrderNumber();
         btnBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,13 +48,14 @@ public class BuyMedicineBookActivity extends AppCompatActivity {
                 String username = sharedPreferences.getString("username","").toString();
 
                 Database db = new Database(getApplicationContext(),"healthcare",null,1);
+                db.insertOrderDetails(odnum, "Unpaid"); // Insert a paid order
 
                 db.addOrder(username,
                         edname.getText().toString(),
                         edaddress.getText().toString(),
                         edcontact.getText().toString(),
                         Integer.parseInt(edpincode.getText().toString()),
-                        date.toString(),"",
+                        date.toString(),odnum.toString(),
                         Float.parseFloat(price[1].toString()),"medicine");
                 db.removeCart(username,"medinice");
                 Toast.makeText(getApplicationContext(), "Your booking is done successfully", Toast.LENGTH_LONG).show();

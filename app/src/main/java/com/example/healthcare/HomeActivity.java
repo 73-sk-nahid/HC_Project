@@ -62,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
                 finish(); // Finish the HomeActivity to remove it from the back stack
                 applyExitLogic = true; //reset the flag
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class).putExtra("applyExitLogic", false));
+                Toast.makeText(HomeActivity.this, "Log Out Success", Toast.LENGTH_SHORT).show();
             }
         });
 

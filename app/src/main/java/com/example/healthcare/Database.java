@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -25,6 +26,9 @@ public class Database extends SQLiteOpenHelper {
 
         String qry3 = "create table orderplace(username text,fullname text,address text,contactno text,pincode int,date text,time text,amount float,otype text)";
         sqLiteDatabase.execSQL(qry3);
+
+        String qry4 = "create table orderdetails(ordernumber TEXT PRIMARY KEY, payment_status TEXT)";
+        sqLiteDatabase.execSQL(qry4);
     }
 
     @Override
@@ -116,9 +120,45 @@ public class Database extends SQLiteOpenHelper {
         cv.put("time", time);
         cv.put("amount", price);
         cv.put("otype", otype);
+
         SQLiteDatabase db = getWritableDatabase();
         db.insert("orderplace",null,cv);
         db.close();
+    }
+
+
+   public void insertOrderDetails(String orderNumber, String paymentStatus) {
+       SQLiteDatabase db = getWritableDatabase();
+       ContentValues cv = new ContentValues();
+       cv.put("ordernumber", orderNumber);
+       cv.put("payment_status", paymentStatus);
+       db.insert("orderdetails", null, cv);
+       db.close();
+   }
+    public void updateOrderPaymentStatus(String orderNumber, String paymentStatus) {
+        ContentValues cv = new ContentValues();
+        cv.put("payment_status", paymentStatus);
+        SQLiteDatabase db = getWritableDatabase();
+
+        String[] whereArgs = new String[]{orderNumber};
+        Log.d("od number", orderNumber);
+        int update;
+
+        try {
+            update = db.update("orderdetails", cv, "ordernumber = ?", whereArgs);
+            Log.e("update done", "Paid update done");
+        } catch (Exception e) {
+            Log.e("Error", "Error updating payment status: " + e.getMessage());
+            update = -1; // Set update to a negative value to indicate an error
+        } finally {
+            db.close();
+        }
+
+        if (update > 0) {
+            Log.d("Debug", "Yes update");
+        } else {
+            Log.d("Debug", "Not update");
+        }
     }
 
     public ArrayList getOrderData(String username){
@@ -135,6 +175,28 @@ public class Database extends SQLiteOpenHelper {
         db.close();
         return arr;
     }
+
+    public String getOrderPaymentStatus(String orderNumber) {
+        SQLiteDatabase db = getReadableDatabase();
+        String[] columns = {"payment_status"};
+        String selection = "ordernumber = ?";
+        String[] selectionArgs = {orderNumber};
+
+        Cursor cursor = db.query("orderdetails", columns, selection, selectionArgs, null, null, null);
+
+        String paymentStatus = "";
+        if (cursor.moveToFirst()) {
+            int paymentStatusColumnIndex = cursor.getColumnIndex("payment_status");
+            if (paymentStatusColumnIndex != -1) {
+                paymentStatus = cursor.getString(paymentStatusColumnIndex);
+            }
+        }
+        cursor.close();
+        db.close();
+
+        return paymentStatus;
+    }
+
 
     public int checkAppointmentExists(String username, String fullname, String address, String contact, String date, String time){
         int result = 0;

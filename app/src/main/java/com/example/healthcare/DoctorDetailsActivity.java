@@ -21,53 +21,52 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
     private String[][] doctor_details1 =
             {
-                    {"Doctor Name : Mahbubur Rahman", "Apollo Hospital, Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500", "19:00 - 22:00", "MBBS (DMC), FACC (USA)" },
-                    {"Doctor Name : Tavvir Ahmed", "BRB Hospital, Dhaka", "Exp : 4yrs.", "Mobile No : 01700000000", "500", "19:00 - 22:00", "MBBS (DU), FCPS (CHILD)"  },
-                    {"Doctor Name : Susmita Parvin", "MAG Usmani Medical College, Sylhet", "Exp : 10yrs.", "Mobile No : 01800000000", "900", "19:00 - 22:00" , "MBBS (MUMC), FCPS (CHILD)" },
-                    {"Doctor Name : Rezaul Karim", "Tangail Medical College Tangail", "Exp : 8yrs.", "Mobile No : 01300000000", "600" , "19:00 - 22:00", "MBBS (TMC), CCD (BIRDEM)" },
-                    {"Doctor Name : Jesmin Akter", "Al-Rafi Hospital, Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" , "19:00 - 22:00", "MBBS (DU), FCPS (OBGYN)" }
-
+                    {"Dr. Ahmed Khan", "Family Care Clinic, Dhaka", "Exp : 10yrs.", "01900000000", "500", "09:00 - 13:00", "MBBS (DU), FCPS" },
+                    {"Dr. Ayesha Rahman", "Healthy Life Medical Center, Chittagong", "Exp : 7yrs.", "01700000000", "450", "10:00 - 14:00", "MBBS (DMC), MRCP (UK)" },
+                    {"Dr. Abul Hasan", "Caring Medical Services, Sylhet", "Exp : 15yrs.", "01800000000", "800", "09:30 - 13:30", "MBBS (DU), DNB (Family Medicine)" },
+                    {"Dr. Farid Ahmed", "Wellness Health Clinic, Rajshahi", "Exp : 12yrs.", "01300000000", "600", "11:00 - 15:00", "MBBS (DMC), FCPS" },
+                    {"Dr. Samina Khan", "HealthFirst Clinic, Khulna", "Exp : 8yrs.", "Mobile No : 01600000000", "550", "10:00 - 14:00", "MBBS (DU), MD (Family Medicine)" }
             };
+
 
     private String[][] doctor_details2 =
             {
-                    {"Doctor Name : Mahbubur Rahman", "Hospital Address : Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500" },
-                    {"Doctor Name : Tavvir Ahmed", "Hospital Address : Narsingdi", "Exp : 4yrs.", "Mobile No : 01700000000", "500" },
-                    {"Doctor Name : Susmita Parvin", "Hospital Address : Rajshahi", "Exp : 10yrs.", "Mobile No : 01800000000", "900" },
-                    {"Doctor Name : Rezaul Karim", "Hospital Address : Dhaka", "Exp : 8yrs.", "Mobile No : 01300000000", "600" },
-                    {"Doctor Name : Jesmin Akter", "Hospital Address : Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" }
-
+                    {"Nusrat Jahan", "Diet and Nutrition Center, Dhaka", "Exp : 6yrs.", "01900000000", "300", "09:00 - 12:00", "BSc in Nutrition and Dietetics" },
+                    {"Farhana Ahmed", "Healthy Living Clinic, Chittagong", "Exp : 8yrs.", "01700000000", "400", "10:00 - 13:00", "MS in Dietetics and Nutrition" },
+                    {"Zubair Khan", "Wellness Clinic, Sylhet", "Exp : 12yrs.", "01800000000", "800", "09:30 - 12:30", "Certified Dietician" },
+                    {"Sadia Rahman", "Green Health Center, Rajshahi", "Exp : 5yrs.", "01300000000", "350", "11:00 - 14:00", "RD, LD" },
+                    {"Sumaiya Haque", "Nutrition Plus Center, Khulna", "Exp : 10yrs.", "01600000000", "600", "09:00 - 12:00", "MSc in Nutrition Science" }
             };
 
     private String[][] doctor_details3 =
             {
-                    {"Doctor Name : Mahbubur Rahman", "Hospital Address : Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500" },
-                    {"Doctor Name : Tavvir Ahmed", "Hospital Address : Narsingdi", "Exp : 4yrs.", "Mobile No : 01700000000", "500" },
-                    {"Doctor Name : Susmita Parvin", "Hospital Address : Rajshahi", "Exp : 10yrs.", "Mobile No : 01800000000", "900" },
-                    {"Doctor Name : Rezaul Karim", "Hospital Address : Dhaka", "Exp : 8yrs.", "Mobile No : 01300000000", "600" },
-                    {"Doctor Name : Jesmin Akter", "Hospital Address : Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" }
-
+                    {"Dr. Shahid Malik", "Perfect Smile Dental Clinic, Dhaka", "Exp : 12yrs.", "01900000000", "800", "10:00 - 18:00", "BDS (DU), MDS (Oral Surgery)" },
+                    {"Dr. Farah Ahmed", "Healthy Teeth Dental Care, Chittagong", "Exp : 9yrs.", "01700000000", "700", "09:30 - 17:30", "BDS (DMC), FCPS (Dentistry)" },
+                    {"Dr. Ahmed Rahman", "Bright Dental Center, Sylhet", "Exp : 15yrs.", "01800000000", "1000", "11:00 - 19:00", "BDS (DU), MOrth (Orthodontics)" },
+                    {"Dr. Ayesha Khan", "Smile Haven Dental Clinic, Rajshahi", "Exp : 10yrs.", "01300000000", "850", "10:30 - 18:30", "BDS (DU), MFDS RCS (UK)" },
+                    {"Dr. Samir Khan", "Dental Wellness Clinic, Khulna", "Exp : 7yrs.", "01600000000", "750", "11:30 - 19:30", "BDS (DU), MS (Oral Pathology)" }
             };
+
 
     private String[][] doctor_details4 =
             {
-                    {"Doctor Name : Mahbubur Rahman", "Hospital Address : Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500" },
-                    {"Doctor Name : Tavvir Ahmed", "Hospital Address : Narsingdi", "Exp : 4yrs.", "Mobile No : 01700000000", "500" },
-                    {"Doctor Name : Susmita Parvin", "Hospital Address : Rajshahi", "Exp : 10yrs.", "Mobile No : 01800000000", "900" },
-                    {"Doctor Name : Rezaul Karim", "Hospital Address : Dhaka", "Exp : 8yrs.", "Mobile No : 01300000000", "600" },
-                    {"Doctor Name : Jesmin Akter", "Hospital Address : Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" }
-
+                    {"Dr. Fahim Rahman", "City Hospital, Dhaka", "Exp : 15yrs.", "01900000000", "1500", "08:00 - 16:00", "MBBS (DMC), FCPS (Surgery)" },
+                    {"Dr. Nusrat Khan", "MediCorp Medical Center, Chittagong", "Exp : 12yrs.", "01700000000", "1300", "09:00 - 17:00", "MBBS (DMC), MS (General Surgery)" },
+                    {"Dr. Shahin Ahmed", "Sunrise Hospital, Sylhet", "Exp : 20yrs.", "01800000000", "1800", "10:00 - 18:00", "MBBS (DU), MCh (Plastic Surgery)" },
+                    {"Dr. Rehana Malik", "Royal Medical Complex, Rajshahi", "Exp : 18yrs.", "01300000000", "1600", "10:30 - 18:30", "MBBS (RU), FCPS (Surgery)" },
+                    {"Dr. Imran Khan", "Greenview Hospital, Khulna", "Exp : 14yrs.", "01600000000", "1400", "11:00 - 19:00", "MBBS (KMC), FCPS (Surgery)" }
             };
+
 
     private String[][] doctor_details5 =
             {
-                    {"Doctor Name : Mahbubur Rahman", "Hospital Address : Dhaka", "Exp : 5yrs.", "Mobile No : 01900000000", "500" },
-                    {"Doctor Name : Tavvir Ahmed", "Hospital Address : Narsingdi", "Exp : 4yrs.", "Mobile No : 01700000000", "500" },
-                    {"Doctor Name : Susmita Parvin", "Hospital Address : Rajshahi", "Exp : 10yrs.", "Mobile No : 01800000000", "900" },
-                    {"Doctor Name : Rezaul Karim", "Hospital Address : Dhaka", "Exp : 8yrs.", "Mobile No : 01300000000", "600" },
-                    {"Doctor Name : Jesmin Akter", "Hospital Address : Jashor", "Exp : 15yrs.", "Mobile No : 01600000000", "1000" }
-
+                    {"Dr. Farah Khan", "HeartCare Clinic, Dhaka", "Exp : 12yrs.", "01900000000", "1200", "08:00 - 16:00", "MBBS (DMC), FCPS (Cardiology)" },
+                    {"Dr. Ahsan Ahmed", "CardioMed Hospital, Chittagong", "Exp : 10yrs.", "01700000000", "1000", "09:00 - 17:00", "MBBS (CMC), MD (Cardiology)" },
+                    {"Dr. Samiul Islam", "Heartbeat Hospital, Sylhet", "Exp : 15yrs.", "01800000000", "1500", "10:00 - 18:00", "MBBS (SU), DM (Cardiology)" },
+                    {"Dr. Saba Akhtar", "CardioWell Clinic, Rajshahi", "Exp : 14yrs.", "01300000000", "1400", "10:30 - 18:30", "MBBS (RU), FCPS (Cardiology)" },
+                    {"Dr. Imran Ali", "HeartHealth Hospital, Khulna", "Exp : 11yrs.", "01600000000", "1100", "11:00 - 19:00", "MBBS (KMC), MD (Cardiology)" }
             };
+
 
     TextView tv;
     Button btn;
@@ -96,15 +95,15 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             doctor_details = doctor_details1;
         else
         if (title.compareTo("Dietician")==0)
-            doctor_details = doctor_details1;
+            doctor_details = doctor_details2;
         else
         if (title.compareTo("Dentist")==0)
-            doctor_details = doctor_details1;
+            doctor_details = doctor_details3;
         else
         if (title.compareTo("Surgeon")==0)
-            doctor_details = doctor_details1;
+            doctor_details = doctor_details4;
         else
-            doctor_details = doctor_details1;
+            doctor_details = doctor_details5;
 
 
             btn.setOnClickListener(new View.OnClickListener() {

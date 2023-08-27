@@ -95,6 +95,8 @@ public class BookAppointmentActivity extends AppCompatActivity {
                 startActivity(new Intent(BookAppointmentActivity.this, FindDoctorActivity.class));
             }
         });
+
+        String odnum  = generateOrderNumber();
         btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,16 +105,17 @@ public class BookAppointmentActivity extends AppCompatActivity {
 
                 Database db = new Database(getApplicationContext(),"healthcare",null,1);
 
+                db.insertOrderDetails(odnum, "Unpaid"); // Insert a paid order
+
                 if (db.checkAppointmentExists(username,title+" => "+fullname,address,contact,dateButton.getText().toString(),timeButton.getText().toString())==1){
                     Toast.makeText(getApplicationContext(), "Appointment already booked", Toast.LENGTH_LONG).show();
                 }else {
-                    db.addOrder( username,title+" => "+fullname,address,contact,0,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
+                    db.addOrder(username,title+" "+fullname,address,contact,0,dateButton.getText().toString(),timeButton.getText().toString(),Float.parseFloat(fees),"appointment");
                     //Intent it = new Intent(BookAppointmentActivity.this, BuyMedicineBookActivity.class);
                     //startActivity(it);
                     Toast.makeText(getApplicationContext(), "Your appointment is done successfully", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(BookAppointmentActivity.this, HomeActivity.class));
                 }
-
             }
         });
 
@@ -130,7 +133,6 @@ public class BookAppointmentActivity extends AppCompatActivity {
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
-
         int style = AlertDialog.THEME_HOLO_DARK;
         datePickerDialog = new DatePickerDialog(this,style,dateSetListener,year,month,day);
         datePickerDialog.getDatePicker().setMinDate(cal.getTimeInMillis()+86400000);
@@ -147,14 +149,12 @@ public class BookAppointmentActivity extends AppCompatActivity {
         Calendar cal = Calendar.getInstance();
         int hrs = cal.get(Calendar.HOUR);
         int mins = cal.get(Calendar.MINUTE);
-
         int style = AlertDialog.THEME_HOLO_DARK;
         timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,mins,true);
     }
     private String generateOrderNumber() {
         Random random = new Random();
-        int orderNumber = random.nextInt(9000) + 6000; // Generate a random number between 10000 and 99999
+        int orderNumber = random.nextInt(40) + 1; // Generate a random number between 10000 and 99999
         return String.valueOf(orderNumber);
     }
-    String orderNumber = generateOrderNumber();
 }

@@ -44,7 +44,7 @@ public class CartLabActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cart_lab);
 
         dateButton = findViewById(R.id.buttonCartDate);
-        timeButton = findViewById(R.id.buttonCartTime);
+        //timeButton = findViewById(R.id.buttonCartTime);
         btnCheckout = findViewById(R.id.buttonCartCheckout);
         btnBack = findViewById(R.id.buttonCartBack);
         tvTotal = findViewById(R.id.textViewCartTotalCost);
@@ -104,7 +104,7 @@ public class CartLabActivity extends AppCompatActivity {
                 Intent it = new Intent(CartLabActivity.this, LabTestBookActivity.class);
                 it.putExtra("price",tvTotal.getText());
                 it.putExtra("date",dateButton.getText());
-                it.putExtra("time",timeButton.getText());
+                //it.putExtra("time",timeButton.getText());
                 startActivity(it);
             }
         });
@@ -120,13 +120,13 @@ public class CartLabActivity extends AppCompatActivity {
         });
 
         //timepicker
-        initTimePicker();
+        /*initTimePicker();
         timeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 timePickerDialog.show();
             }
-        });
+        });*/
 
     }
 
@@ -149,19 +149,18 @@ public class CartLabActivity extends AppCompatActivity {
         datePickerDialog.getDatePicker().setMinDate(cal.getTimeInMillis()+86400000);
     }
 
-    private void initTimePicker(){
+    /*private void initTimePicker(){
         TimePickerDialog.OnTimeSetListener timeSetListener = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
                 timeButton.setText(i+":"+i1);
             }
-        };
+        };*/
 
         Calendar cal = Calendar.getInstance();
         int hrs = cal.get(Calendar.HOUR);
         int mins = cal.get(Calendar.MINUTE);
 
         int style = AlertDialog.THEME_HOLO_DARK;
-        timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,mins,true);
+        //timePickerDialog = new TimePickerDialog(this,style,timeSetListener,hrs,mins,true);
     }
-}

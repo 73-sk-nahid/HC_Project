@@ -60,7 +60,6 @@ private String[] package_details =
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         //getSupportActionBar().hide();
         setContentView(R.layout.activity_buy_medicine);
-
         lst = findViewById(R.id.listviewBM);
         btnGoToCart = findViewById(R.id.buttonBMGoToCard);
         btnBack = findViewById(R.id.buttonBMBack);
@@ -87,7 +86,8 @@ private String[] package_details =
             item.put("line2", packages[i][1]);
             item.put("line3", packages[i][2]);
             item.put("line4", packages[i][3]);
-            item.put("line5", "Total Cost"+packages[i][4]+"/-");
+            //item.put("line5", "Total Cost"+packages[i][4]+"/-");
+            item.put("line5", "Know more");
             item.put("line6", "");
             list.add( item );
 
