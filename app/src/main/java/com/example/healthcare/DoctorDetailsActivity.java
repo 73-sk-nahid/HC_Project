@@ -31,11 +31,11 @@ public class DoctorDetailsActivity extends AppCompatActivity {
 
     private String[][] doctor_details2 =
             {
-                    {"Nusrat Jahan", "Diet and Nutrition Center, Dhaka", "Exp : 6yrs.", "01900000000", "300", "09:00 - 12:00", "BSc in Nutrition and Dietetics" },
-                    {"Farhana Ahmed", "Healthy Living Clinic, Chittagong", "Exp : 8yrs.", "01700000000", "400", "10:00 - 13:00", "MS in Dietetics and Nutrition" },
-                    {"Zubair Khan", "Wellness Clinic, Sylhet", "Exp : 12yrs.", "01800000000", "800", "09:30 - 12:30", "Certified Dietician" },
-                    {"Sadia Rahman", "Green Health Center, Rajshahi", "Exp : 5yrs.", "01300000000", "350", "11:00 - 14:00", "RD, LD" },
-                    {"Sumaiya Haque", "Nutrition Plus Center, Khulna", "Exp : 10yrs.", "01600000000", "600", "09:00 - 12:00", "MSc in Nutrition Science" }
+                    {"Dr. Nusrat Jahan", "Diet and Nutrition Center, Dhaka", "Exp : 6yrs.", "01900000000", "300", "09:00 - 12:00", "BSc in Nutrition and Dietetics" },
+                    {"Dr. Farhana Ahmed", "Healthy Living Clinic, Chittagong", "Exp : 8yrs.", "01700000000", "400", "10:00 - 13:00", "MS in Dietetics and Nutrition" },
+                    {"Dr. Zubair Khan", "Wellness Clinic, Sylhet", "Exp : 12yrs.", "01800000000", "800", "09:30 - 12:30", "Certified Dietician" },
+                    {"Dr. Sadia Rahman", "Green Health Center, Rajshahi", "Exp : 5yrs.", "01300000000", "350", "11:00 - 14:00", "RD, LD" },
+                    {"Dr. Sumaiya Haque", "Nutrition Plus Center, Khulna", "Exp : 10yrs.", "01600000000", "600", "09:00 - 12:00", "MSc in Nutrition Science" }
             };
 
     private String[][] doctor_details3 =
