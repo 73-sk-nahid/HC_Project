@@ -1,8 +1,10 @@
 package com.example.healthcare;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,8 +26,6 @@ public class LoginActivity extends AppCompatActivity {
     private boolean doubleBackToExitPressedOnce = false;
     private static final int BACK_PRESS_DELAY = 2000; // Time in milliseconds
     private boolean applyExitLogic = false;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,12 +79,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
-    @Override
+    /*@Override
     public void onBackPressed() {
-        //applyExitLogic = true;
+        applyExitLogic = true;
         if (applyExitLogic) {
             if (doubleBackToExitPressedOnce) {
                 super.onBackPressed();
+                getActivity().finish();
+                System.exit(0);
                 return;
             }
 
@@ -99,6 +101,32 @@ public class LoginActivity extends AppCompatActivity {
             }, BACK_PRESS_DELAY);
         } else {
             super.onBackPressed();
-        }
+        }*/
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Exit Application?");
+        alertDialogBuilder
+                .setMessage("Click yes to exit!")
+                .setCancelable(false)
+                .setPositiveButton("Yes",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                moveTaskToBack(true);
+                                android.os.Process.killProcess(android.os.Process.myPid());
+                                System.exit(1);
+                            }
+                        })
+
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                        dialog.cancel();
+                    }
+                });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
     }
 }

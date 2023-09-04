@@ -26,8 +26,6 @@ public class HomeActivity extends AppCompatActivity {
     private boolean doubleBackToExitPressedOnce = false;
     private static final int BACK_PRESS_DELAY = 2000; // Time in milliseconds
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,7 +35,6 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         videoView = findViewById(R.id.videoView);
         textView = findViewById(R.id.textView);
-
         textView.setSelected(true);
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
@@ -131,8 +128,6 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
-
     protected void onPause() {
         super.onPause();
         currentPosition = videoView.getCurrentPosition(); // Save the current position
@@ -145,4 +140,11 @@ public class HomeActivity extends AppCompatActivity {
         videoView.seekTo(currentPosition); // Resume from the saved position
         videoView.start(); // Start video playback
     }
+    @Override
+    public void onBackPressed() {
+        //applyExitLogic = true;
+        if (applyExitLogic) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(intent);
+        }}
 }

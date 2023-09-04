@@ -30,11 +30,9 @@ import com.sslwireless.sslcommerzlibrary.model.util.SSLCSdkType;
 import com.sslwireless.sslcommerzlibrary.view.singleton.IntegrateSSLCommerz;
 import com.sslwireless.sslcommerzlibrary.viewmodel.listener.SSLCTransactionResponseListener;
 
-
 public class OrderDetailsActivity extends AppCompatActivity implements SSLCTransactionResponseListener{
 
     private String[][] order_details = {};
-
     HashMap<String,String> item;
     ArrayList list;
     SimpleAdapter sa;

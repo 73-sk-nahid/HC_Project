@@ -60,13 +60,12 @@ public class BuyMedicineBookActivity extends AppCompatActivity {
                 db.removeCart(username,"medinice");
                 Toast.makeText(getApplicationContext(), "Your booking is done successfully", Toast.LENGTH_LONG).show();
                 startActivity(new Intent(BuyMedicineBookActivity.this, HomeActivity.class));
-
             }
         });
     }
     private String generateOrderNumber() {
         Random random = new Random();
-        int orderNumber = random.nextInt(5000) + 1000; // Generate a random number between 10000 and 99999
+        int orderNumber = random.nextInt(5000) + 1000; // Generate a random number between 1000 and 5000
         return String.valueOf(orderNumber);
     }
 
